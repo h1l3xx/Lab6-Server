@@ -7,8 +7,7 @@ object ReceiverProgram {
     @Throws(IOException::class)
     fun startReceiver(): DatagramChannel {
         val receiver = DatagramChannel.open()
-        // Listening SocketAddress
-        val address = InetSocketAddress("172.28.29.31", 1050)
+        val address = InetSocketAddress("172.28.29.31", 1050)//localnetwork ip
         receiver.bind(address)
         println("Receiver started at #$address")
         return receiver
