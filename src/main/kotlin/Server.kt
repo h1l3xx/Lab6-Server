@@ -5,11 +5,11 @@ import java.net.DatagramPacket
 class Server {
     fun main(){
         try {
-            val byteArray : ByteArray = ByteArray(5)
+            val byteArray : ByteArray = ByteArray(65535)
             val ds = DatagramSocket(1050)
 
             while (true){
-                val pack = DatagramPacket(byteArray, 5)
+                val pack = DatagramPacket(byteArray, 65535)
                 ds.receive(pack)
                 println(pack.data.toString())
             }
