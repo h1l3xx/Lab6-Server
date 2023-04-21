@@ -4,10 +4,47 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92a2c0f5-e21a-4ece-b142-fe3da2975884" name="Changes" comment="Initial commit">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/App.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="92a2c0f5-e21a-4ece-b142-fe3da2975884" name="Changes" comment="first commit">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/CommandManager.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Operator.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/city/City.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/city/CityCollection.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/city/CityComparator.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/city/CityCompareByDefault.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/city/CityCreator.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/city/Climate.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/city/Coordinates.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/city/Government.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/city/Human.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/commands/Add.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/commands/Clear.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/commands/Command.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/commands/ExecuteScript.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/commands/Exit.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/commands/FilterContainsName.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/commands/Help.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/commands/Info.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/commands/PrintAscending.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/commands/RemoveAllByMetersAboveSeaLevel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/commands/RemoveAt.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/commands/RemoveById.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/commands/RemoveLower.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/commands/Save.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/commands/Show.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/commands/Sort.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/commands/UpdateById.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/commands/tools/ArgsInfo.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/commands/tools/CheckArg.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/commands/tools/CheckField.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/commands/tools/CheckScript.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/commands/tools/CityUpdater.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/commands/tools/Result.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/commands/tools/VarsShaper.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/printers/Printer.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/printers/UPrinter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/App.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/App.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Server.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Server.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,8 +60,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Kotlin Class" />
         <option value="Kotlin File" />
+        <option value="Kotlin Interface" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -40,24 +78,26 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2OjLMf9Evr3zNF3DhRf3F8WVYQt" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Sasha/IdeaProjects/Lab6-Client&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Sasha/IdeaProjects/Proga_lab_5",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

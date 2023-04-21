@@ -1,0 +1,35 @@
+package city
+
+import java.time.LocalDateTime
+import java.util.LinkedList
+
+var arrayFreeId = emptyArray<Long>()
+class CityCollection {
+
+    private val collection = LinkedList<City>()
+    private var creationTime: LocalDateTime? = LocalDateTime.now()
+    private var maxId : Long = 0
+    fun getCollection() : LinkedList<City>{
+        return collection
+    }
+    fun add(city : City) {
+        collection.add(city)
+    }
+
+    fun getCreationTime(): LocalDateTime? = creationTime
+    fun setCreationTime(creationTime: LocalDateTime? ) {
+        this.creationTime = creationTime
+    }fun getFreeId() : Long{
+        return if (arrayFreeId.isNotEmpty()){
+            val id = arrayFreeId[0]
+            arrayFreeId = removeFirstItem(arrayFreeId)
+            id
+        }else{
+            maxId += 1
+            maxId
+        }
+    }
+    private fun removeFirstItem(array: Array<Long>): Array<Long> {
+        return array.copyOfRange(1, array.size)
+    }
+}
