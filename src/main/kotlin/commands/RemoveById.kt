@@ -5,10 +5,12 @@ import collection
 import commands.tools.ArgsInfo
 import commands.tools.MoreArgumentsInCommand
 import commands.tools.Result
+import commands.tools.SetMapForCommand
 
 private var arrayOfId = emptyArray<Long>()
 class RemoveById : Command {
     private val argsInfo = ArgsInfo()
+    private val setMapForCommand = SetMapForCommand()
     private val c = collection.getCollection()
 
     override fun comply(variables: HashMap<String, Any>): Result {
@@ -24,6 +26,10 @@ class RemoveById : Command {
             removeAllCity(arrayOfId)
         }
         return Result(message, true)
+    }
+
+    override fun setMapForClient(): HashMap<String, String> {
+        return setMapForCommand.setMapForCommand(1, c.size, true, RemoveById())
     }
 
     override fun getName(): String {

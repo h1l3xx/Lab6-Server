@@ -5,6 +5,7 @@ import city.CityCreator
 import collection
 import commands.tools.ArgsInfo
 import commands.tools.Result
+import commands.tools.SetMapForCommand
 import commands.tools.VarsShaper
 import java.time.LocalDate
 import java.time.ZoneId
@@ -32,10 +33,12 @@ object Var{
     const val True = "True"
     const val False = "False"
     const val numbersOfId = "numbers of id"
+    const val description = "description"
 }
 
 
 class Add : Command {
+    private val setMapForCommand = SetMapForCommand()
     private val shaper = VarsShaper()
     private val argsInfo = ArgsInfo()
     override fun comply(variables: HashMap<String, Any>): Result {
@@ -83,5 +86,8 @@ class Add : Command {
 
     override fun argContract(arguments: List<String>): HashMap<String, Any> {
         return shaper.shape()
+    }
+    override fun setMapForClient() : HashMap<String, String>{
+        return setMapForCommand.setMapForCommand(0,0,false, Add())
     }
 }

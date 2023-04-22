@@ -3,7 +3,7 @@ package commands.tools
 import city.City
 import commands.Var
 import sc
-import uPrinter
+import uSender
 
 object Action{
     const val remove = "remove"
@@ -23,7 +23,7 @@ class CheckField {
             Var.coordinateX -> Var.coordinateX
             Var.coordinateY -> Var.coordinateY
             else -> {
-                uPrinter.print { "Введено некорректное поле. Возможно, данное поле не поддерживает подобное удаление. Введите повторно ТОЛЬКО название поля." }
+                uSender.print { "Введено некорректное поле. Возможно, данное поле не поддерживает подобное удаление. Введите повторно ТОЛЬКО название поля." }
                 return "error"
             }
         }

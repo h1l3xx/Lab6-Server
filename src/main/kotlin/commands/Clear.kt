@@ -3,9 +3,13 @@ package commands
 import collection
 import commands.tools.ArgsInfo
 import commands.tools.Result
+import commands.tools.SetMapForCommand
+import commands.tools.Validator
+
 class Clear : Command {
 
     private val argsInfo = ArgsInfo()
+    private val setMapForCommand = SetMapForCommand()
     override fun comply(variables: HashMap<String, Any>): Result {
 
         val cityCollection = collection.getCollection()
@@ -29,4 +33,8 @@ class Clear : Command {
     override fun getDescription(): String {
         return "Очищение коллекции. Передаваемых аргументов НЕТ."
     }
+    override fun setMapForClient(): HashMap<String, String> {
+        return setMapForCommand.setMapForCommand(0,0,true, Clear())
+    }
+
 }

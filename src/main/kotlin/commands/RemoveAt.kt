@@ -5,12 +5,13 @@ import collection
 import commands.tools.ArgsInfo
 import commands.tools.CheckArg
 import commands.tools.Result
-
+import commands.tools.SetMapForCommand
 
 
 class RemoveAt : Command {
     private val argsInfo = ArgsInfo()
     private val checkArg = CheckArg()
+    private val setMapForCommand = SetMapForCommand()
     override fun comply(variables: HashMap<String, Any>): Result {
         val message : String
 
@@ -31,7 +32,7 @@ class RemoveAt : Command {
         }
 
 
-        return kotlin.Result(message, true)
+        return Result(message, true)
     }
 
     override fun getName(): String {
@@ -50,5 +51,9 @@ class RemoveAt : Command {
         val arg = HashMap<String, Any>()
         arg[Var.index] = checkArg.checkArg(Var.id, arguments[0])
         return arg
+    }
+
+    override fun setMapForClient(): HashMap<String, String> {
+        return setMapForCommand.setMapForCommand(1,1,true,RemoveAt())
     }
 }

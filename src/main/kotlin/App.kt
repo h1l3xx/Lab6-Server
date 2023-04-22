@@ -1,12 +1,19 @@
+
 import city.CityCollection
-import printers.UPrinter
-import java.util.Scanner
+import commands.*
+import senders.USender
 
 val collection = CityCollection()
-val uPrinter = UPrinter()
 val operator = Operator()
 val commandManager = CommandManager()
-//fun main(){
-   // val server = Server()
-  //  server.main()
-//}
+val uSender = USender()
+val server = ReceiverProgram()
+
+fun main(){
+    commandManager.register(Add(), Clear(), ExecuteScript(), Exit(), FilterContainsName(), Help(), Info(),
+    PrintAscending(), RemoveAllByMetersAboveSeaLevel(), RemoveAt(), RemoveById(), RemoveLower(), Save(), Show(), Sort(), UpdateById())
+    val receiver = server.startReceiver()
+    while (true){
+        server.main(receiver)
+    }
+}

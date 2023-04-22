@@ -4,10 +4,12 @@ import city.arrayFreeId
 import collection
 import commands.tools.ArgsInfo
 import commands.tools.Result
+import commands.tools.SetMapForCommand
 
 
 class RemoveAllByMetersAboveSeaLevel: Command {
     private val argsInfo = ArgsInfo()
+    private val setMapForCommand = SetMapForCommand()
     override fun comply(variables: HashMap<String, Any>): Result {
 
 
@@ -43,5 +45,9 @@ class RemoveAllByMetersAboveSeaLevel: Command {
         val arg : HashMap<String, Any> = HashMap()
         arg[Var.meters] = arguments[0].toLong()
         return arg
+    }
+
+    override fun setMapForClient(): HashMap<String, String> {
+        return setMapForCommand.setMapForCommand(1,1,true, RemoveAllByMetersAboveSeaLevel())
     }
 }

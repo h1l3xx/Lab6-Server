@@ -4,17 +4,20 @@ package commands
 import commandManager
 import commands.tools.ArgsInfo
 import commands.tools.Result
-import printers.UPrinter
+import commands.tools.SetMapForCommand
+import commands.tools.Validator
+import uSender
 
 
 class Help : Command{
     private val argsInfo = ArgsInfo()
-    private val printer = UPrinter()
+    private val printer = uSender
+    private val setMapForCommand = SetMapForCommand()
 
     override fun comply(variables: HashMap<String, Any>): Result {
         val commandDescriptionList: HashMap<String, String> = commandManager.getCommandDescriptionList()
         for (command in commandDescriptionList) {
-            printer.printValues(command.key, command.value)
+            printer.sendValues(command.key, command.value)
         }
         return Result("Команда успешно выполнена", false)
     }
@@ -33,5 +36,9 @@ class Help : Command{
 
     override fun argContract(arguments: List<String>): HashMap<String, Any> {
         return HashMap()
+    }
+
+    override fun setMapForClient(): HashMap<String, String> {
+        return setMapForCommand.setMapForCommand(0,0,true,Help())
     }
 }

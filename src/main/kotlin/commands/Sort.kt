@@ -5,10 +5,13 @@ import city.CityComparator
 import collection
 import commands.tools.ArgsInfo
 import commands.tools.Result
+import commands.tools.SetMapForCommand
+import java.util.TreeMap
 
 
 class Sort : Command {
     private val argsInfo = ArgsInfo()
+    private val setMapForCommand = SetMapForCommand()
     override fun comply(variables: HashMap<String, Any>): Result {
 
         val c = CityComparator()
@@ -17,6 +20,10 @@ class Sort : Command {
         cl.sortWith(c)
 
         return Result("Коллекция отсортирована", true)
+    }
+
+    override fun setMapForClient(): HashMap<String, String> {
+        return setMapForCommand.setMapForCommand(0,0,true, Sort())
     }
 
     override fun getName(): String {

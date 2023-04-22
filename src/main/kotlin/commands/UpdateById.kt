@@ -2,16 +2,14 @@ package commands
 
 
 import collection
-import commands.tools.ArgsInfo
-import commands.tools.CityUpdater
-import commands.tools.MoreArgumentsInCommand
-import commands.tools.Result
+import commands.tools.*
 
 
 class UpdateById : Command {
     private val argsInfo = ArgsInfo()
     private val updater = CityUpdater()
     private var detector = false
+    private val setMapForCommand = SetMapForCommand()
     override fun comply(variables: HashMap<String, Any>): Result {
         val c = collection.getCollection()
         var message = "Значение полей города обновлены."
@@ -63,5 +61,9 @@ class UpdateById : Command {
         val more = MoreArgumentsInCommand()
         val secondMap = more.moreArguments(fields, Var.numberOfFields)
         return (firstMap + secondMap) as HashMap<String, Any>
+    }
+
+    override fun setMapForClient(): HashMap<String, String> {
+        return setMapForCommand.setMapForCommand(1, 12, true, UpdateById())
     }
 }

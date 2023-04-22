@@ -3,7 +3,7 @@ package commands.tools
 
 import commands.Var
 import sc
-import uPrinter
+import uSender
 
 class CheckArg {
     private val varShaper = VarsShaper()
@@ -30,7 +30,7 @@ class CheckArg {
     }
     fun checkArg(field: String, arg:String):String{
         return if (!setArg(field, arg)){
-            uPrinter.print { "Указанное значение не удовлетворяет условиям поля, введите значение повторно." }
+            uSender.print { "Указанное значение не удовлетворяет условиям поля, введите значение повторно." }
             val newArg = sc.nextLine()
             this.checkArg(field, newArg)
         }else{

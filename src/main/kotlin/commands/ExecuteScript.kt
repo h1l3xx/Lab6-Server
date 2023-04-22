@@ -4,7 +4,7 @@ package commands
 import commands.tools.*
 import operator
 import sc
-import uPrinter
+import uSender
 import java.io.BufferedReader
 import java.io.FileReader
 import java.util.*
@@ -12,6 +12,7 @@ import kotlin.collections.HashMap
 
 class ExecuteScript: Command{
 
+    private val setMapForCommand = SetMapForCommand()
     private val argsInfo = ArgsInfo()
     private var lines : Int = 0
     private val checker = CheckScript()
@@ -68,6 +69,10 @@ class ExecuteScript: Command{
 
     override fun argsInfo(): HashMap<String, Int> {
         return argsInfo.setLimits(1, 1, 1)
+    }
+
+    override fun setMapForClient(): HashMap<String, String> {
+        return setMapForCommand.setMapForCommand(1,1,true, ExecuteScript())
     }
     private fun addCommand(commands : List<String>, index : Int) : Int{
         val variables = HashMap<String, Any>()
@@ -142,7 +147,7 @@ class ExecuteScript: Command{
         if (!detector){
             Add().comply(variables)
         }else{
-            uPrinter.print { "Найдена ошибка в обработке значений для команды 'add', проверьте порядок и правильность. " }
+            uSender.print { "Найдена ошибка в обработке значений для команды 'add', проверьте порядок и правильность. " }
             operator.runCommand(sc.nextLine())
         }
         return indexValue

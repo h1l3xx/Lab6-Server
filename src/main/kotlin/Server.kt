@@ -1,14 +1,18 @@
 
+import commands.tools.Validator
+import commands.tools.parse
 import java.io.IOException
 import java.net.InetSocketAddress
 import java.nio.ByteBuffer
 import java.nio.channels.DatagramChannel
 
-object ReceiverProgram {
+val validator = Validator()
+class ReceiverProgram {
+
     @Throws(IOException::class)
     fun startReceiver(): DatagramChannel {
         val receiver = DatagramChannel.open()
-        val address = InetSocketAddress("172.28.29.31", 1050)//localnetwork ip
+        val address = InetSocketAddress("172.28.110.31", 1050)//local network ip
         receiver.bind(address)
         println("Receiver started at #$address")
         return receiver
@@ -29,16 +33,15 @@ object ReceiverProgram {
         buffer[bytes]
         return String(bytes)
     }
-
     @Throws(IOException::class)
-    @JvmStatic
-    fun main(args: Array<String>) {
-        val receiver = startReceiver()
+    fun main(receiver : DatagramChannel) {
         while (true) {
             val message = receiveMessage(receiver)
-            println(" - Message: $message")
+            if (message == "pizda"){
+                uSender.print { parse() }
+            }else{
+                uSender.print { sc.nextLine() }
+            }
         }
-        receiver.close()
-        println("Receiver closed!")
     }
 }

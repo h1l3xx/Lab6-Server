@@ -3,21 +3,23 @@ package commands
 import collection
 import commands.tools.ArgsInfo
 import commands.tools.Result
-import uPrinter
-import java.util.*
+import commands.tools.SetMapForCommand
+import uSender
+import kotlin.collections.HashMap
 
 
 class Show : Command {
     private val argsInfo = ArgsInfo()
+    private val setMapForCommand = SetMapForCommand()
     override fun comply(variables: HashMap<String, Any>): Result {
 
         val collection = collection.getCollection()
         if (collection.size > 0) {
             for (c in collection) {
-                uPrinter.print { c.toString() }
+                uSender.print { c.toString() }
             }
         } else {
-            uPrinter.print { "Коллекция пуста." }
+            uSender.print { "Коллекция пуста." }
         }
 
         return Result("Команда выполнена успешно.", false)
@@ -29,6 +31,10 @@ class Show : Command {
 
     override fun getDescription(): String {
         return "Вывод элементов коллекции. Передаваемых аргументов НЕТ."
+    }
+
+    override fun setMapForClient(): HashMap<String, String> {
+        return setMapForCommand.setMapForCommand(0,0,true, Show())
     }
 
     override fun argContract(arguments: List<String>): HashMap<String, Any> {

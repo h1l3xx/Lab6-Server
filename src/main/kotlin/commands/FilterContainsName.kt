@@ -5,11 +5,13 @@ import city.City
 import collection
 import commands.tools.ArgsInfo
 import commands.tools.Result
-import uPrinter
+import commands.tools.SetMapForCommand
+import uSender
 
 
 class FilterContainsName : Command {
     private val argsInfo = ArgsInfo()
+    private val setMapForCommand = SetMapForCommand()
     override fun comply(variables: HashMap<String, Any>): Result {
 
         val collectionInfo = collection.getCollection()
@@ -19,11 +21,11 @@ class FilterContainsName : Command {
             while (it.hasNext()) {
                 val city: City = it.next()
                 if (city.getName()!!.contains(variables["Substring"].toString())) {
-                    uPrinter.print { city.getName()!! }
+                    uSender.print { city.getName()!! }
                 }
             }
         } else {
-            uPrinter.print { "Коллекция пуста." }
+            uSender.print { "Коллекция пуста." }
         }
 
         return Result("Выведены все города с указанной подстрокой в названии.", true)
@@ -45,5 +47,9 @@ class FilterContainsName : Command {
         val name : HashMap<String, Any> = HashMap()
         name["Substring"] = arguments[0]
         return name
+    }
+
+    override fun setMapForClient(): HashMap<String, String> {
+        return setMapForCommand.setMapForCommand(1, 1, true, FilterContainsName())
     }
 }

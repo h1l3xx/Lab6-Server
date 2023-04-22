@@ -13,6 +13,7 @@ class RemoveLower : Command {
     private val argsInfo = ArgsInfo()
     private val checkField = CheckField()
     private val checkArg = CheckArg()
+    private val setMapForCommand = SetMapForCommand()
     override fun comply(variables: HashMap<String, Any>): Result {
 
         val field = variables[Str.field].toString()
@@ -36,6 +37,10 @@ class RemoveLower : Command {
 
     override fun getName(): String {
         return "remove_lower"
+    }
+
+    override fun setMapForClient(): HashMap<String, String> {
+        return setMapForCommand.setMapForCommand(2,2,true,RemoveLower())
     }
 
     override fun getDescription(): String {

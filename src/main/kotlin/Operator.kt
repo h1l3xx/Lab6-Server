@@ -8,18 +8,15 @@ object Strings {
 var sc = Scanner(System.`in`)
 class Operator {
 
-
-
     fun process(){
 
-        uPrinter.print { Strings.START_STRING }
+        uSender.print { Strings.START_STRING }
 
         val wayToFile  = sc.nextLine()
 
         val firstCommand = "load $wayToFile"
 
         runCommand(firstCommand)
-        //Написать код для загрузки данных из файла в коллекцию
 
         while (true){
             val command = sc.nextLine()
@@ -41,9 +38,7 @@ class Operator {
                 commandManager.manage(name, arguments)}
 
         }else{
-            uPrinter.print { Strings.NO_COMMAND }
+            uSender.print { Strings.NO_COMMAND }
         }
     }
-
-
 }

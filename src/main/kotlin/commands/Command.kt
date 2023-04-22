@@ -7,4 +7,5 @@ interface Command {
     fun getName(): String
     fun argContract(arguments : List<String>): HashMap<String, Any>
     fun argsInfo(): HashMap<String, Int>
+    fun setMapForClient(): HashMap<String, String>
 }

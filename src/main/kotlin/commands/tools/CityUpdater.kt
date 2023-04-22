@@ -7,7 +7,7 @@ import commands.Add
 import commands.Var
 import operator
 import sc
-import uPrinter
+import uSender
 import java.time.ZonedDateTime
 
 object Numbers {
@@ -45,7 +45,7 @@ class CityUpdater {
                     Numbers.nine -> update(city, arguments[Numbers.nine].toString())
                     Numbers.ten -> update(city, arguments[Numbers.ten].toString())
                     else -> {
-                        uPrinter.print{ "Ошибка при извлечении поле. Попробуйте ещё раз." }
+                        uSender.print{ "Ошибка при извлечении поле. Попробуйте ещё раз." }
                         operator.runCommand(sc.nextLine())
                     }
                 }
@@ -75,7 +75,7 @@ class CityUpdater {
             Var.age -> city.setArea(varsShaper.setAreaAndAge(Var.age))
             Var.area -> city.setArea(varsShaper.setAreaAndAge(Var.area))
             else -> {
-                uPrinter.print{" Ошибка. Указано несуществующее поле, проверьте указанные значения."}
+                uSender.print{" Ошибка. Указано несуществующее поле, проверьте указанные значения."}
                 operator.runCommand(sc.nextLine())
             }
         }

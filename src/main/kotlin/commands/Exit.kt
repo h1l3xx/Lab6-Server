@@ -2,7 +2,8 @@ package commands
 
 import commands.tools.ArgsInfo
 import commands.tools.Result
-import printers.UPrinter
+import commands.tools.SetMapForCommand
+import uSender
 import kotlin.system.exitProcess
 
 object Message {
@@ -10,7 +11,8 @@ object Message {
 }
 
 class Exit : Command {
-    private val printer = UPrinter()
+    private val setMapForCommand = SetMapForCommand()
+    private val printer = uSender
     private val argsInfo = ArgsInfo()
     override fun comply(variables: HashMap<String, Any>): Result {
         printer.print { Message.MESSAGE }
@@ -29,5 +31,9 @@ class Exit : Command {
     }
     override fun argsInfo(): HashMap<String, Int> {
         return argsInfo.setLimits(0,0,1)
+    }
+
+    override fun setMapForClient(): HashMap<String, String> {
+        return setMapForCommand.setMapForCommand(0,0,false, Exit())
     }
 }

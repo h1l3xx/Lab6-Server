@@ -2,12 +2,15 @@ package commands
 
 import commands.tools.ArgsInfo
 import commands.tools.Result
+import commands.tools.SetMapForCommand
+import commands.tools.Validator
 
 
 class PrintAscending : Command {
     private val argsInfo = ArgsInfo()
     private val sort = Sort()
     private val show = Show()
+    private val setMapForCommand = SetMapForCommand()
     override fun comply(variables: HashMap<String, Any>): Result {
 
         sort.comply(HashMap())
@@ -31,5 +34,9 @@ class PrintAscending : Command {
 
     override fun argContract(arguments: List<String>): HashMap<String, Any> {
         return HashMap()
+    }
+
+    override fun setMapForClient(): HashMap<String, String> {
+       return setMapForCommand.setMapForCommand(0,0,true, PrintAscending())
     }
 }
