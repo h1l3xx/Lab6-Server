@@ -18,7 +18,7 @@ class Clear : Command {
     }
 
     override fun getName(): String {
-        return "clear."
+        return "clear"
     }
 
     override fun argContract(arguments: List<String>): HashMap<String, Any> {

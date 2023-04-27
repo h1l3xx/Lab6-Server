@@ -16,7 +16,7 @@ class ReceiverProgram {
     @Throws(IOException::class)
     fun startReceiver(): DatagramChannel {
         val receiver = DatagramChannel.open()
-        val address = InetSocketAddress("172.28.20.255", 1050)//local network ip
+        val address = InetSocketAddress("192.168.31.83", 3000)//local network ip
         receiver.bind(address)
         println("Receiver started at #$address")
         return receiver
@@ -26,7 +26,8 @@ class ReceiverProgram {
     fun receiveMessage(receiver: DatagramChannel): String {
         val buffer = ByteBuffer.allocate(1024)
         val senderAddress = receiver.receive(buffer)
-        if (!users.checkUser(senderAddress.toString())){
+        val senderAddressForArray = senderAddress.toString().split(":")
+        if (users.checkUser(senderAddressForArray[0])){
             uSender.print { parse() }
         }
         val message = extractMessage(buffer)
@@ -45,6 +46,7 @@ class ReceiverProgram {
     fun main(receiver : DatagramChannel) {
         while (true) {
             val message = receiveMessage(receiver)
+            println(message)
 
             buffer.setMessage(message)
             if (checker){

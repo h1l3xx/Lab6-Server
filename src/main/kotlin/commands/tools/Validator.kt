@@ -10,12 +10,8 @@ class Validator {
     private var max : Int? = null
     private var min : Int? = null
     private var inline : Boolean? = null
-    private var commandDescription : String? = null
     private var commandName : String? = null
 
-    fun setCommandDescription(description : String){
-        this.commandDescription = description
-    }
     fun setCommandName(name : String){
         this.commandName = name
     }
@@ -31,7 +27,6 @@ class Validator {
     fun createMap() : HashMap<String, String>{
         val returnMap : HashMap<String, String> = HashMap()
         returnMap[Var.name] = commandName.toString()
-        returnMap[Var.description] = commandDescription.toString()
         returnMap[Values.max] = max.toString()
         returnMap[Values.min] = min.toString()
         returnMap[Values.between] = inline.toString()

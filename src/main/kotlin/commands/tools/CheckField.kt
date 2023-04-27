@@ -53,7 +53,7 @@ class CheckField {
                 }
             }
             Var.age -> {
-                return if (arg.toInt() > city.getGovernorAge()!!){
+                return if (arg.toInt() > city.getGovernor().getAge()!!){
                     Action.remove
                 }else{
                     Action.stay
@@ -88,14 +88,14 @@ class CheckField {
                 }
             }
             Var.coordinateX -> {
-                return if (arg.toInt() > city.getCoordinatesX()){
+                return if (arg.toInt() > city.getCoordinates().getX()){
                     Action.remove
                 }else{
                     Action.stay
                 }
             }
             else -> {
-                return if (arg.toFloat() > city.getCoordinatesY()){
+                return if (arg.toFloat() > city.getCoordinates().getY()){
                     Action.remove
                 }else{
                     Action.stay

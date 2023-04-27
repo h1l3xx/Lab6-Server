@@ -4,36 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92a2c0f5-e21a-4ece-b142-fe3da2975884" name="Changes" comment="Add Server, Serialisation.">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Users.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/commands/Load.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/commands/tools/ArgumentsSetting.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/commands/tools/FieldType.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/commands/tools/MapWrapper.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/commands/tools/Parser.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/serversTools/Buffer.kt" afterDir="false" />
+    <list default="true" id="92a2c0f5-e21a-4ece-b142-fe3da2975884" name="Changes" comment="Json Serialization and Deserialization for save and load">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Operator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Operator.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Server.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Server.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/city/City.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/city/City.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/city/CityCollection.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/city/CityCollection.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/city/CityCreator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/city/CityCreator.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/city/Coordinates.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/city/Coordinates.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/city/Human.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/city/Human.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Users.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Users.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/commands/Add.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/commands/Add.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/commands/Clear.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/commands/Clear.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/commands/ExecuteScript.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/commands/ExecuteScript.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/commands/RemoveLower.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/commands/RemoveLower.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/commands/Save.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/commands/Save.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/commands/Show.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/commands/Show.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/commands/Sort.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/commands/Sort.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/commands/tools/CheckScript.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/commands/tools/CheckScript.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/commands/tools/CityUpdater.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/commands/tools/CityUpdater.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/commands/tools/ParseToSave.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/commands/tools/ParseToSave.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/commands/tools/SetMapForCommand.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/commands/tools/SetMapForCommand.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/commands/tools/CheckField.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/commands/tools/CheckField.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/commands/tools/Validator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/commands/tools/Validator.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/senders/Sender.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/senders/Sender.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/serversTools/Buffer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/serversTools/Buffer.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +66,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Sasha/IdeaProjects/Proga_lab_5",
+    "last_opened_file_path": "C:/Users/Sasha/IdeaProjects/Lab6-Client",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
@@ -127,7 +108,8 @@
       <workItem from="1682521363911" duration="862000" />
       <workItem from="1682523009796" duration="976000" />
       <workItem from="1682527141027" duration="624000" />
-      <workItem from="1682580605712" duration="15826000" />
+      <workItem from="1682580605712" duration="16103000" />
+      <workItem from="1682621330763" duration="3205000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1682069188404</created>
@@ -150,7 +132,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682122130577</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Json Serialization and Deserialization for save and load">
+      <created>1682605261232</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1682605261232</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,6 +160,7 @@
     <MESSAGE value="Initial commit" />
     <MESSAGE value="add files from Lab5" />
     <MESSAGE value="Add Server, Serialisation." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Server, Serialisation." />
+    <MESSAGE value="Json Serialization and Deserialization for save and load" />
+    <option name="LAST_COMMIT_MESSAGE" value="Json Serialization and Deserialization for save and load" />
   </component>
 </project>

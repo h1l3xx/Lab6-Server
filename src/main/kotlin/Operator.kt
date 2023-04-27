@@ -1,4 +1,3 @@
-import serversTools.Buffer
 import java.util.*
 
 object Strings {
@@ -10,7 +9,6 @@ var sc = Scanner(System.`in`)
 class Operator {
 
     fun process() : Boolean{
-        val buffer = Buffer()
 
         uSender.print { Strings.START_STRING }
 
