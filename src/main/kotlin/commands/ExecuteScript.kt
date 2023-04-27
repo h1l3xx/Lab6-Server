@@ -1,14 +1,13 @@
 package commands
 
 
+import buffer
 import commands.tools.*
 import operator
-import sc
 import uSender
 import java.io.BufferedReader
 import java.io.FileReader
 import java.util.*
-import kotlin.collections.HashMap
 
 class ExecuteScript: Command{
 
@@ -20,6 +19,8 @@ class ExecuteScript: Command{
     override fun comply(variables: HashMap<String, Any>): Result {
         var message = "Команда выполнена"
         var file = """"""
+
+        Save().comply(HashMap())
 
         try{
             val bufferReader = BufferedReader(FileReader(variables[Var.wayToFile].toString()))
@@ -44,12 +45,11 @@ class ExecuteScript: Command{
                 operator.runCommand(commands[counter])
                 counter += 1
             }
+
         }catch (e : Exception){
             message = "Error. Команда не выполнена."
             println(e.printStackTrace())
         }
-
-
         return Result(message, true)
     }
 
@@ -148,7 +148,7 @@ class ExecuteScript: Command{
             Add().comply(variables)
         }else{
             uSender.print { "Найдена ошибка в обработке значений для команды 'add', проверьте порядок и правильность. " }
-            operator.runCommand(sc.nextLine())
+            operator.runCommand(buffer.getMessage(false))
         }
         return indexValue
     }

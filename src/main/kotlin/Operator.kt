@@ -1,3 +1,4 @@
+import serversTools.Buffer
 import java.util.*
 
 object Strings {
@@ -8,20 +9,18 @@ object Strings {
 var sc = Scanner(System.`in`)
 class Operator {
 
-    fun process(){
+    fun process() : Boolean{
+        val buffer = Buffer()
 
         uSender.print { Strings.START_STRING }
 
-        val wayToFile  = sc.nextLine()
+        val wayToFile  = buffer.getMessage(true)
 
         val firstCommand = "load $wayToFile"
 
         runCommand(firstCommand)
 
-        while (true){
-            val command = sc.nextLine()
-            runCommand(command)
-        }
+        return false
     }
 
     fun runCommand(command: String){
@@ -36,7 +35,6 @@ class Operator {
                 commandManager.manage(name, argumentsWithoutLast)
             }else{
                 commandManager.manage(name, arguments)}
-
         }else{
             uSender.print { Strings.NO_COMMAND }
         }

@@ -1,6 +1,5 @@
 package city
 
-
 import java.time.LocalDateTime
 import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
@@ -8,7 +7,7 @@ import java.time.format.DateTimeFormatter
 class City {
     private var id: Long? =null
     private var name: String? =null
-    private var coordinates: Coordinates? = Coordinates(0,0F)
+    private var coordinates: Coordinates? = Coordinates()
     private var creationDate: LocalDateTime? = LocalDateTime.now()
     private var area: Int? =null
     private var population: Long? =null
@@ -35,22 +34,17 @@ class City {
         str.append("; Губернатор: ").append(governor.toString()).append("\n")
         return str.toString()
     }
-
-    fun getCoordinates(): Coordinates? = coordinates
+    fun getCoordinates() : Coordinates{
+        return this.coordinates!!
+    }
     fun setCoordinates(coordinates: Coordinates) {
         this.coordinates = coordinates
     }
 
-    fun getCoordinatesX(): Long{
-        return coordinates!!.getX()
-    }
     fun setCoordinatesX(x: Long) {
         coordinates!!.setX(x)
     }
 
-    fun getCoordinatesY(): Float {
-        return coordinates!!.getY()
-    }
     fun setCoordinatesY(y: Float) {
         coordinates!!.setY(y)
     }
@@ -59,18 +53,12 @@ class City {
     fun setMetersAboveSeaLevel(metersAboveSeaLevel: Long){
         this.metersAboveSeaLevel = metersAboveSeaLevel
     }
-
-    fun getGovernor(): Human? = governor
     fun setGovernor(governor: Human?){
         this.governor = governor
     }
-
-    fun getGovernorAge(): Int? = governor!!.getAge()
-    fun setGovernorAge(age: Int){
-        governor!!.setAge(age)
+    fun getGovernor() : Human{
+        return this.governor!!
     }
-
-    fun getGovernorBirthday(): ZonedDateTime? = governor!!.getBirthday()
     fun setGovernorAge(birthday: ZonedDateTime){
         governor!!.setBirthday(birthday)
     }
@@ -85,7 +73,7 @@ class City {
         this.id = id
     }
 
-    fun getCreationDate(): LocalDateTime? = creationDate
+    fun getCreationDate(): String = creationDate.toString()
     fun setCreationDate(creationDate: LocalDateTime?) {
         this.creationDate = creationDate
     }
@@ -94,10 +82,11 @@ class City {
     fun setClimate(climate: Climate){
         this.climate = climate
     }
-
-    fun getGovernment(): Government? = government
     fun setGovernment(government: Government){
         this.government = government
+    }
+    fun getGovernment(): Government{
+        return this.government!!
     }
 
     fun getAgglomeration(): Double? = agglomeration

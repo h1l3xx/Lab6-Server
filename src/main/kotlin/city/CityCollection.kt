@@ -1,9 +1,11 @@
 package city
 
 import java.time.LocalDateTime
-import java.util.LinkedList
+import java.util.*
 
 var arrayFreeId = emptyArray<Long>()
+
+
 class CityCollection {
 
     private val collection = LinkedList<City>()

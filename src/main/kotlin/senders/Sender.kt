@@ -28,7 +28,7 @@ interface Sender {
 
     fun print(supplier: () -> String) {
         val sender = startSender()
-        val receiverAddress = InetSocketAddress("172.28.110.33", 1050)
+        val receiverAddress = InetSocketAddress("172.28.20.255", 1050)
         sendMessage(sender, supplier(), receiverAddress)
     }
 }

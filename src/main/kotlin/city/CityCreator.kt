@@ -13,7 +13,9 @@ class CityCreator {
 
         city.setName(name)
 
-        val coordinates = Coordinates(coordX, coordY)
+        val coordinates = Coordinates()
+        coordinates.setX(coordX)
+        coordinates.setY(coordY)
         city.setCoordinates(coordinates)
 
         city.setArea(area)

@@ -3,7 +3,6 @@ package commands
 
 import commands.tools.ArgsInfo
 import commands.tools.ParseToSave
-
 import commands.tools.Result
 import commands.tools.SetMapForCommand
 

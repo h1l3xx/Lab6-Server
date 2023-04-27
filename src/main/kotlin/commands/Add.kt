@@ -34,6 +34,7 @@ object Var{
     const val False = "False"
     const val numbersOfId = "numbers of id"
     const val description = "description"
+    const val settings = "settings"
 }
 
 

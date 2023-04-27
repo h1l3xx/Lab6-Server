@@ -38,12 +38,16 @@ class Validator {
 
         return returnMap
     }
+
+
     fun takeAllInfoFromCommand() : List<HashMap<String,String>>{
         for (command in commandList){
             list.add(command.value.setMapForClient())
         }
+        val argumentsSetting = ArgumentsSetting()
+        list.add(argumentsSetting.getSettings())
         return list
     }
-
-
 }
+
+

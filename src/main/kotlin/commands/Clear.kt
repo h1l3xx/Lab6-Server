@@ -4,7 +4,6 @@ import collection
 import commands.tools.ArgsInfo
 import commands.tools.Result
 import commands.tools.SetMapForCommand
-import commands.tools.Validator
 
 class Clear : Command {
 

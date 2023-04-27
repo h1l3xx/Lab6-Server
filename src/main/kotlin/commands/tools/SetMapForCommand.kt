@@ -6,7 +6,6 @@ class SetMapForCommand {
     fun setMapForCommand(min : Int , max : Int, inline : Boolean, command : Command) : HashMap<String, String>{
         val commandInfo = Validator()
         commandInfo.setCommandName(command.getName())
-        commandInfo.setCommandDescription(command.getDescription())
         commandInfo.setInline(inline)
         commandInfo.setMax(max)
         commandInfo.setMin(min)
