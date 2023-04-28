@@ -1,7 +1,7 @@
 package commands.tools
 
 
-import buffer
+
 import city.City
 import city.Climate
 import city.Government
@@ -10,6 +10,7 @@ import collection
 import commands.Add
 import commands.Var
 import operator
+import sc
 import uSender
 import java.time.ZonedDateTime
 
@@ -50,7 +51,7 @@ class CityUpdater {
                     Numbers.ten -> update(city, arguments[Numbers.ten].toString())
                     else -> {
                         uSender.print{ "Ошибка при извлечении поле. Попробуйте ещё раз." }
-                        operator.runCommand(buffer.getMessage(false))
+                        operator.runCommand(sc.nextLine())
                     }
                 }
             }
@@ -80,7 +81,7 @@ class CityUpdater {
             Var.area -> city.setArea(varsShaper.setAreaAndAge(Var.area))
             else -> {
                 uSender.print{" Ошибка. Указано несуществующее поле, проверьте указанные значения."}
-                operator.runCommand(buffer.getMessage(false))
+                operator.runCommand(sc.nextLine())
             }
         }
     }

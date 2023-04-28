@@ -1,9 +1,9 @@
 package commands
 
 
-import buffer
 import commands.tools.*
 import operator
+import sc
 import uSender
 import java.io.BufferedReader
 import java.io.FileReader
@@ -148,7 +148,7 @@ class ExecuteScript: Command{
             Add().comply(variables)
         }else{
             uSender.print { "Найдена ошибка в обработке значений для команды 'add', проверьте порядок и правильность. " }
-            operator.runCommand(buffer.getMessage(false))
+            operator.runCommand(sc.nextLine())
         }
         return indexValue
     }

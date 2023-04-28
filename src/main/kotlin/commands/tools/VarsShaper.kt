@@ -54,7 +54,7 @@ class VarsShaper {
         return variables
     }
     fun setName():String{
-        uSender.print { Messages.setName }
+        println( Messages.setName )
         val name = sc.nextLine()
         return if (checkName(name)) {
             return name

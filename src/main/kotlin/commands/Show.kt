@@ -15,7 +15,7 @@ class Show : Command {
         val collection = collection.getCollection()
         if (collection.size > 0) {
             for (c in collection) {
-                uSender.print { c.toString() }
+                println(c.toString())
             }
         } else {
             uSender.print { "Коллекция пуста." }

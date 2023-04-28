@@ -34,6 +34,11 @@ object Var{
     const val False = "False"
     const val numbersOfId = "numbers of id"
     const val description = "description"
+    const val str = "String"
+    const val long = "long"
+    const val integer = "int"
+    const val double = "double"
+    const val float = "float"
 }
 
 

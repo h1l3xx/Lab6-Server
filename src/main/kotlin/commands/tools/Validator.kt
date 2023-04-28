@@ -40,7 +40,7 @@ class Validator {
             list.add(command.value.setMapForClient())
         }
         val argumentsSetting = ArgumentsSetting()
-        list.add(argumentsSetting.getSettings())
+        list.add(SetMapForArguments().set() as HashMap<String, String>)
         return list
     }
 }

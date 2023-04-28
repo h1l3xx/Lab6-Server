@@ -12,7 +12,7 @@ class Operator {
 
         uSender.print { Strings.START_STRING }
 
-        val wayToFile  = buffer.getMessage(true)
+        val wayToFile  = sc.nextLine()
 
         val firstCommand = "load $wayToFile"
 
@@ -34,7 +34,7 @@ class Operator {
             }else{
                 commandManager.manage(name, arguments)}
         }else{
-            uSender.print { Strings.NO_COMMAND }
+            println(Strings.NO_COMMAND)
         }
     }
 }

@@ -4,17 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92a2c0f5-e21a-4ece-b142-fe3da2975884" name="Changes" comment="Json Serialization and Deserialization for save and load">
+    <list default="true" id="92a2c0f5-e21a-4ece-b142-fe3da2975884" name="Changes" comment="Something">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/commands/tools/SetMapForArguments.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/server/UpdServer.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/serversTools/Deserialization.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/serversTools/Parse.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/serversTools/Serialize.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/App.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/App.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Operator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Operator.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Server.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Server.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Users.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Users.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Server.kt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/commands/Add.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/commands/Add.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/commands/Clear.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/commands/Clear.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/commands/tools/CheckField.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/commands/tools/CheckField.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/commands/ExecuteScript.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/commands/ExecuteScript.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/commands/Show.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/commands/Show.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/commands/tools/CheckScript.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/commands/tools/CheckScript.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/commands/tools/CityUpdater.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/commands/tools/CityUpdater.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/commands/tools/Validator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/commands/tools/Validator.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/commands/tools/VarsShaper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/commands/tools/VarsShaper.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/commands/tools/Wrapper.kt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/senders/Sender.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/senders/Sender.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/serversTools/Buffer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/serversTools/Buffer.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/serversTools/Buffer.kt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,21 +69,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Sasha/IdeaProjects/Lab6-Client",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Sasha/IdeaProjects/Lab6-Client&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="serversTools" />
       <recent name="senders" />
       <recent name="commands" />
     </key>
@@ -109,7 +119,8 @@
       <workItem from="1682523009796" duration="976000" />
       <workItem from="1682527141027" duration="624000" />
       <workItem from="1682580605712" duration="16103000" />
-      <workItem from="1682621330763" duration="3205000" />
+      <workItem from="1682621330763" duration="4625000" />
+      <workItem from="1682665560116" duration="25120000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1682069188404</created>
@@ -139,7 +150,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682605261232</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Something">
+      <created>1682624736941</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1682624736941</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -161,6 +179,7 @@
     <MESSAGE value="add files from Lab5" />
     <MESSAGE value="Add Server, Serialisation." />
     <MESSAGE value="Json Serialization and Deserialization for save and load" />
-    <option name="LAST_COMMIT_MESSAGE" value="Json Serialization and Deserialization for save and load" />
+    <MESSAGE value="Something" />
+    <option name="LAST_COMMIT_MESSAGE" value="Something" />
   </component>
 </project>

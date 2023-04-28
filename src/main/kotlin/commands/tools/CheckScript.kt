@@ -1,8 +1,8 @@
 package commands.tools
 
-import buffer
 import commands.Clear
 import operator
+import sc
 import uSender
 
 class CheckScript {
@@ -15,7 +15,7 @@ class CheckScript {
                 Clear().comply(HashMap())
                 Parser().parse("C:\\Users\\Sasha\\IdeaProjects\\Lab6-Server\\save.json")
 
-                operator.runCommand( buffer.getMessage(false))
+                operator.runCommand(sc.nextLine())
             }else{
                 scriptArray[scriptArray.size-1] = line
             }
