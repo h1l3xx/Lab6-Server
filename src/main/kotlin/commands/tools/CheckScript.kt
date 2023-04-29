@@ -10,7 +10,7 @@ class CheckScript {
     fun check(line : String){
         for (script in scriptArray){
             if (line == script){
-                uSender.print { "Ошибка. Обнаружена рекурсия. Все изменения, которые успели выполниться - отменены." }
+                uSender.print ( "Ошибка. Обнаружена рекурсия. Все изменения, которые успели выполниться - отменены." )
 
                 Clear().comply(HashMap())
                 Parser().parse("C:\\Users\\Sasha\\IdeaProjects\\Lab6-Server\\save.json")

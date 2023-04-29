@@ -21,11 +21,11 @@ class FilterContainsName : Command {
             while (it.hasNext()) {
                 val city: City = it.next()
                 if (city.getName()!!.contains(variables["Substring"].toString())) {
-                    uSender.print { city.getName()!! }
+                    uSender.print ( city.getName()!! )
                 }
             }
         } else {
-            uSender.print { "Коллекция пуста." }
+            uSender.print ( "Коллекция пуста." )
         }
 
         return Result("Выведены все города с указанной подстрокой в названии.", true)
@@ -50,6 +50,6 @@ class FilterContainsName : Command {
     }
 
     override fun setMapForClient(): HashMap<String, String> {
-        return setMapForCommand.setMapForCommand(1, 1, true, FilterContainsName())
+        return setMapForCommand.setMapForCommand(1, 1, true, FilterContainsName(), Var.str)
     }
 }

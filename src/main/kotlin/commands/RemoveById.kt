@@ -29,7 +29,7 @@ class RemoveById : Command {
     }
 
     override fun setMapForClient(): HashMap<String, String> {
-        return setMapForCommand.setMapForCommand(1, c.size, true, RemoveById())
+        return setMapForCommand.setMapForCommand(1, 100, true, RemoveById(), Var.long)
     }
 
     override fun getName(): String {

@@ -22,7 +22,7 @@ class Sort : Command {
     }
 
     override fun setMapForClient(): HashMap<String, String> {
-        return setMapForCommand.setMapForCommand(0,0,true, Sort())
+        return setMapForCommand.setMapForCommand(0,0,true, Sort(), "")
     }
 
     override fun getName(): String {

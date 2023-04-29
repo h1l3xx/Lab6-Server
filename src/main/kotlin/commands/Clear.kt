@@ -33,7 +33,7 @@ class Clear : Command {
         return "Очищение коллекции. Передаваемых аргументов НЕТ."
     }
     override fun setMapForClient(): HashMap<String, String> {
-        return setMapForCommand.setMapForCommand(0,0,true, Clear())
+        return setMapForCommand.setMapForCommand(0,0,true, Clear(), "")
     }
 
 }

@@ -48,6 +48,6 @@ class RemoveAllByMetersAboveSeaLevel: Command {
     }
 
     override fun setMapForClient(): HashMap<String, String> {
-        return setMapForCommand.setMapForCommand(1,1,true, RemoveAllByMetersAboveSeaLevel())
+        return setMapForCommand.setMapForCommand(1,1,true, RemoveAllByMetersAboveSeaLevel(), Var.long)
     }
 }

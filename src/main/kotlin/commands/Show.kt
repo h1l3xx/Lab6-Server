@@ -18,7 +18,7 @@ class Show : Command {
                 println(c.toString())
             }
         } else {
-            uSender.print { "Коллекция пуста." }
+            uSender.print ( "Коллекция пуста." )
         }
 
         return Result("Команда выполнена успешно.", false)
@@ -33,7 +33,7 @@ class Show : Command {
     }
 
     override fun setMapForClient(): HashMap<String, String> {
-        return setMapForCommand.setMapForCommand(0,0,true, Show())
+        return setMapForCommand.setMapForCommand(0,0,true, Show(), "")
     }
 
     override fun argContract(arguments: List<String>): HashMap<String, Any> {

@@ -40,7 +40,7 @@ class RemoveLower : Command {
     }
 
     override fun setMapForClient(): HashMap<String, String> {
-        return setMapForCommand.setMapForCommand(2,2,true,RemoveLower())
+        return setMapForCommand.setMapForCommand(2,2,true,RemoveLower(), Var.str + "; field" )
     }
 
     override fun getDescription(): String {

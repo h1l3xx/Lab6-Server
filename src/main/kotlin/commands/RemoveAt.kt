@@ -54,6 +54,6 @@ class RemoveAt : Command {
     }
 
     override fun setMapForClient(): HashMap<String, String> {
-        return setMapForCommand.setMapForCommand(1,1,true,RemoveAt())
+        return setMapForCommand.setMapForCommand(1,1,true,RemoveAt(), Var.integer)
     }
 }

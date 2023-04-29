@@ -16,25 +16,28 @@ import java.time.format.DateTimeFormatter
 
 
 object Messages{
-    const val setName = "Укажите название города:"
+    const val setName = "Укажите название города (${Var.name}):"
     const val errorName = "Название города не может быть пустой строкой или null."
 
-    const val setCoordX = "Введите координату X (Long):"
-    const val setCoordY = "Введите координату Y (Float):"
+    const val setCoordX = "Введите координату X (${Var.coordinateX}):"
+    const val setCoordY = "Введите координату Y (${Var.coordinateY}):"
     const val errorCoords = "Указано некорректное значение координаты."
 
-    const val setArea = "Введите значение поля Area (Int, не отрицательная):"
+    const val setArea = "Введите значение поля (${Var.area}):"
     const val errorValue = "Указано некорректное значение переменной."
-    const val setPopulation = "Введите количество жителей (Long, не отрицательное):"
-    const val setMeters = "Введите высоту над уровнем моря (Long):"
-    const val setAgl = "Введите значение поля Agglomeration (Double)"
-    const val setClimate = "Укажите климат из перечисленных значений: \n\t HUMIDCONTINENTAL, \n\t MEDITERRANIAN, \n\t STEPPE."
-    const val setGovernment = "Укажите тип правительства из перечисленных: \n\t OLIGARCHY, \n\t JUNTA, \n\t ETHNOCRACY."
-    const val setAge = "Укажите возраст губернатора (Int):"
-    const val setBirthday = "Укажите день рождения губернатора в формате DD/MM/YYYY:"
+    const val setPopulation = "Введите количество жителей (${Var.population}):"
+    const val setMeters = "Введите высоту над уровнем моря (${Var.meters}):"
+    const val setAgl = "Введите значение поля (${Var.agl})"
+    const val setClimate = "Укажите климат из перечисленных значений (${Var.climate}): \n\t HUMIDCONTINENTAL, \n\t MEDITERRANIAN, \n\t STEPPE."
+    const val setGovernment = "Укажите тип правительства из перечисленных (${Var.government}): \n\t OLIGARCHY, \n\t JUNTA, \n\t ETHNOCRACY."
+    const val setAge = "Укажите возраст губернатора (${Var.age}):"
+    const val setBirthday = "Укажите день рождения губернатора в формате DD/MM/YYYY (${Var.birthday}):"
 
 }
 class VarsShaper {
+    val listForAddCommand = listOf(Messages.setName, Messages.setCoordX, Messages.setCoordY, Messages.setArea,
+        Messages.setPopulation, Messages.setMeters, Messages.setAgl, Messages.setClimate, Messages.setGovernment,
+        Messages.setAge, Messages.setBirthday)
 
     fun shape():HashMap<String, Any>{
         val variables = HashMap<String, Any>()
@@ -54,7 +57,7 @@ class VarsShaper {
         return variables
     }
     fun setName():String{
-        println( Messages.setName )
+        uSender.print ( Messages.setName )
         val name = sc.nextLine()
         return if (checkName(name)) {
             return name
@@ -65,7 +68,7 @@ class VarsShaper {
 
     fun checkName(name : String) : Boolean{
         return if (name == "" || name.equals(null) || name == "null") {
-            uSender.print { Messages.errorName }
+            uSender.print ( Messages.errorName )
             this.setName()
             false
         } else {
@@ -74,7 +77,7 @@ class VarsShaper {
     }
 
     fun setCoordY(): Float {
-        uSender.print { Messages.setCoordY }
+        uSender.print ( Messages.setCoordY )
         val y = sc.nextLine()
         return if (checkCoordY(y)) {
             return y.toFloat()
@@ -88,13 +91,13 @@ class VarsShaper {
             y.toFloat()
             true
         } catch (e: Exception){
-            uSender.print { Messages.errorCoords }
+            uSender.print ( Messages.errorCoords )
             false
         }
     }
 
     fun setCoordX():Long {
-        uSender.print { Messages.setCoordX }
+        uSender.print ( Messages.setCoordX )
         val x = sc.nextLine()
         return if (checkCoordX(x)) {
             x.toLong()
@@ -108,15 +111,15 @@ class VarsShaper {
             x.toLong()
             true
         } catch (e: Exception) {
-            uSender.print { Messages.errorCoords }
+            uSender.print ( Messages.errorCoords )
             false
         }
     }
     fun setAreaAndAge(filed : String): Int{
         if (filed == Var.area){
-            uSender.print { Messages.setArea }
+            uSender.print ( Messages.setArea )
         } else{
-            uSender.print { Messages.setAge }
+            uSender.print ( Messages.setAge )
         }
         val area = sc.nextLine()
         return if (checkAreaAndAge(area)) {
@@ -129,18 +132,18 @@ class VarsShaper {
         return try {
             area.toInt()
             if (area.toInt() < 0){
-                uSender.print { Messages.errorValue }
+                uSender.print (Messages.errorValue )
                 false}
             else{
                 true}
         }catch (e : Exception){
-            uSender.print { Messages.errorValue }
+            uSender.print ( Messages.errorValue )
             false
         }
     }
 
     fun setPopulation():Long{
-        uSender.print { Messages.setPopulation }
+        uSender.print ( Messages.setPopulation )
         val population = sc.nextLine()
         return if (checkPopulation(population)) {
             return population.toLong()
@@ -153,18 +156,18 @@ class VarsShaper {
         return try {
             population.toLong()
             if (population.toLong() < 0) {
-                uSender.print { Messages.errorValue }
+                uSender.print ( Messages.errorValue )
                 this.setPopulation()
             }
             true
         } catch (e: Exception) {
-            uSender.print { Messages.errorValue }
+            uSender.print ( Messages.errorValue )
             false
         }
     }
 
     fun setMeters() : Long{
-        uSender.print { Messages.setMeters }
+        uSender.print ( Messages.setMeters )
         val meters = sc.nextLine()
         return if (checkMeters(meters)) {
             return meters.toLong()
@@ -179,12 +182,12 @@ class VarsShaper {
             meters.toLong()
             true
         } catch (e: Exception) {
-            uSender.print { Messages.errorValue }
+            uSender.print ( Messages.errorValue )
             false
         }
     }
     fun setAgl() : Double{
-        uSender.print { Messages.setAgl }
+        uSender.print ( Messages.setAgl )
         val agl = sc.nextLine()
         return if (checkAdl(agl)) {
             return agl.toDouble()
@@ -198,12 +201,12 @@ class VarsShaper {
             agl.toDouble()
             true
         } catch (e: Exception) {
-            uSender.print { Messages.errorValue }
+            uSender.print ( Messages.errorValue )
             false
         }
     }
     fun setClimate(): String{
-        uSender.print { Messages.setClimate }
+        uSender.print ( Messages.setClimate )
         val climate  = sc.nextLine()
         return if (checkClimate(climate)) {
             return climate.uppercase()
@@ -217,12 +220,12 @@ class VarsShaper {
             Climate.valueOf(climate.uppercase())
             true
         } catch (e: Exception) {
-            uSender.print { Messages.errorValue }
+            uSender.print ( Messages.errorValue )
             false
         }
     }
     fun setGovernment(): String{
-        uSender.print { Messages.setGovernment }
+        uSender.print ( Messages.setGovernment )
         val government = sc.nextLine()
         return if (checkGovernment(government)) {
             return government.uppercase()
@@ -236,12 +239,12 @@ class VarsShaper {
             Government.valueOf(government.uppercase())
             true
         } catch (e: Exception) {
-            uSender.print { Messages.errorValue }
+            uSender.print ( Messages.errorValue )
             false
         }
     }
     fun setBirthday(): String{
-        uSender.print { Messages.setBirthday }
+        uSender.print ( Messages.setBirthday )
         val birthday = sc.nextLine()
         return if (checkBirthday(birthday)) {
             return birthday
@@ -256,7 +259,7 @@ class VarsShaper {
             val result: ZonedDateTime = date.atStartOfDay(ZoneId.systemDefault())
             true
         } catch (e: Exception) {
-            uSender.print { Messages.errorValue }
+            uSender.print ( Messages.errorValue )
             false
         }
     }

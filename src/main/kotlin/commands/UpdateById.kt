@@ -64,6 +64,6 @@ class UpdateById : Command {
     }
 
     override fun setMapForClient(): HashMap<String, String> {
-        return setMapForCommand.setMapForCommand(1, 12, true, UpdateById())
+        return setMapForCommand.setMapForCommand(1, 12, true, UpdateById(), Var.allFields)
     }
 }

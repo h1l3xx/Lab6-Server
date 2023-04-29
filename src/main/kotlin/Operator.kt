@@ -10,7 +10,7 @@ class Operator {
 
     fun process() : Boolean{
 
-        uSender.print { Strings.START_STRING }
+        uSender.print ( Strings.START_STRING )
 
         val wayToFile  = sc.nextLine()
 

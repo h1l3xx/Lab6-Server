@@ -3,7 +3,6 @@ package commands
 import commands.tools.ArgsInfo
 import commands.tools.Result
 import commands.tools.SetMapForCommand
-import commands.tools.Validator
 
 
 class PrintAscending : Command {
@@ -37,6 +36,6 @@ class PrintAscending : Command {
     }
 
     override fun setMapForClient(): HashMap<String, String> {
-       return setMapForCommand.setMapForCommand(0,0,true, PrintAscending())
+       return setMapForCommand.setMapForCommand(0,0,true, PrintAscending(), "")
     }
 }

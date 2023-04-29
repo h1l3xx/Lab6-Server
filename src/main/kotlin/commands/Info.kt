@@ -14,7 +14,7 @@ class Info : Command {
 
         val collectionInfo = collection.getCollection()
 
-        uSender.print { "Дата инициализации: " + collection.getCreationTime().toString() +"; Количество элементов: " +  collectionInfo.size}
+        uSender.print ( "Дата инициализации: " + collection.getCreationTime().toString() +"; Количество элементов: " +  collectionInfo.size)
 
         return Result("Команда выполнена успешно.", false)
     }
@@ -36,7 +36,7 @@ class Info : Command {
     }
 
     override fun setMapForClient(): HashMap<String, String> {
-        return setMapForCommand.setMapForCommand(0,0,true, Info())
+        return setMapForCommand.setMapForCommand(0,0,true, Info(), "")
     }
 
 }

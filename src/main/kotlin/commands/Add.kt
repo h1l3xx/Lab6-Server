@@ -39,6 +39,7 @@ object Var{
     const val integer = "int"
     const val double = "double"
     const val float = "float"
+
 }
 
 
@@ -93,6 +94,6 @@ class Add : Command {
         return shaper.shape()
     }
     override fun setMapForClient() : HashMap<String, String>{
-        return setMapForCommand.setMapForCommand(0,0,false, Add())
+        return setMapForCommand.setMapForCommand(0,0,false, Add(), "")
     }
 }

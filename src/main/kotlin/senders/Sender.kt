@@ -1,9 +1,10 @@
 package senders
 
+
 interface Sender {
 
-    fun print(supplier: () -> String) {
 
+    fun print(str : String) {
     }
 }
 

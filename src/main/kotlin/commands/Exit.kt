@@ -15,7 +15,7 @@ class Exit : Command {
     private val printer = uSender
     private val argsInfo = ArgsInfo()
     override fun comply(variables: HashMap<String, Any>): Result {
-        printer.print { Message.MESSAGE }
+        printer.print ( Message.MESSAGE )
         exitProcess(0)
     }
 
@@ -34,6 +34,6 @@ class Exit : Command {
     }
 
     override fun setMapForClient(): HashMap<String, String> {
-        return setMapForCommand.setMapForCommand(0,0,false, Exit())
+        return setMapForCommand.setMapForCommand(0,0,false, Exit(), "")
     }
 }

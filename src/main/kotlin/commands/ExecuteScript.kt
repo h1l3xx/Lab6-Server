@@ -72,7 +72,7 @@ class ExecuteScript: Command{
     }
 
     override fun setMapForClient(): HashMap<String, String> {
-        return setMapForCommand.setMapForCommand(1,1,true, ExecuteScript())
+        return setMapForCommand.setMapForCommand(1,1,true, ExecuteScript(), Var.wayToFile)
     }
     private fun addCommand(commands : List<String>, index : Int) : Int{
         val variables = HashMap<String, Any>()
@@ -147,7 +147,7 @@ class ExecuteScript: Command{
         if (!detector){
             Add().comply(variables)
         }else{
-            uSender.print { "Найдена ошибка в обработке значений для команды 'add', проверьте порядок и правильность. " }
+            uSender.print ("Найдена ошибка в обработке значений для команды 'add', проверьте порядок и правильность. " )
             operator.runCommand(sc.nextLine())
         }
         return indexValue

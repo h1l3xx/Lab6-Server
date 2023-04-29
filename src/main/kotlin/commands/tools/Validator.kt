@@ -11,6 +11,7 @@ class Validator {
     private var min : Int? = null
     private var inline : Boolean? = null
     private var commandName : String? = null
+    private var text : String? = null
 
     fun setCommandName(name : String){
         this.commandName = name
@@ -21,6 +22,9 @@ class Validator {
     fun setMin(value : Int){
         this.min = value
     }
+    fun setText(value : String){
+        this.text = value
+    }
     fun setInline(value: Boolean){
         this.inline = value
     }
@@ -30,6 +34,7 @@ class Validator {
         returnMap[Values.max] = max.toString()
         returnMap[Values.min] = min.toString()
         returnMap[Values.between] = inline.toString()
+        returnMap[Var.description] = text.toString()
 
         return returnMap
     }
@@ -39,7 +44,6 @@ class Validator {
         for (command in commandList){
             list.add(command.value.setMapForClient())
         }
-        val argumentsSetting = ArgumentsSetting()
         list.add(SetMapForArguments().set() as HashMap<String, String>)
         return list
     }

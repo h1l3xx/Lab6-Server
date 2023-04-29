@@ -1,10 +1,12 @@
 package server
 
-import serversTools.Serialization
 import commands.tools.Validator
 import operator
+import senders.ChannelAndAddressManager
 import serversTools.Deserialization
 import serversTools.Parse
+import serversTools.Serialization
+import uSender
 import java.net.InetSocketAddress
 import java.net.SocketAddress
 import java.nio.ByteBuffer
@@ -15,9 +17,10 @@ class UpdServer {
     private var running = true
     var clientsAddress = mutableListOf<SocketAddress>()
 
-    fun run(channel : DatagramChannel){
+    fun run(){
+        val channel = DatagramChannel.open()
 
-        val address = InetSocketAddress("172.28.20.255", 3000)
+        val address = InetSocketAddress("192.168.31.83", 3000)
         channel.bind(address)
         println("Server is running.")
 
@@ -31,6 +34,7 @@ class UpdServer {
             if (!this.clientsAddress.contains(socketAddress)) {
                 this.clientsAddress.add(socketAddress)
                 firstConnection(channel, socketAddress)
+                setChannelAndSocket(channel, socketAddress)
             } else {
                 this.receive(channel, socketAddress, data)
             }
@@ -53,8 +57,15 @@ class UpdServer {
 
         channel.send(ByteBuffer.wrap(Serialization().serialize(Validator().takeAllInfoFromCommand())!!.toByteArray()), socketAddress)
     }
-
     fun stop(){
         this.running = false
+    }
+    private fun setChannelAndSocket(channel: DatagramChannel, socketAddress : SocketAddress){
+        val manager = ChannelAndAddressManager()
+
+        manager.setChannel(channel)
+        manager.setAddress(socketAddress)
+
+        uSender.newManager(manager)
     }
 }

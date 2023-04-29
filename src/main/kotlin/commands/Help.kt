@@ -5,7 +5,6 @@ import commandManager
 import commands.tools.ArgsInfo
 import commands.tools.Result
 import commands.tools.SetMapForCommand
-import commands.tools.Validator
 import uSender
 
 
@@ -39,6 +38,6 @@ class Help : Command{
     }
 
     override fun setMapForClient(): HashMap<String, String> {
-        return setMapForCommand.setMapForCommand(0,0,true,Help())
+        return setMapForCommand.setMapForCommand(0,0,true,Help(), "")
     }
 }
