@@ -1,3 +1,4 @@
+import commands.ExecuteScript
 import java.util.*
 
 object Strings {
@@ -8,11 +9,11 @@ object Strings {
 var sc = Scanner(System.`in`)
 class Operator {
 
-    fun process() : Boolean{
+    fun process(wayToFile : String) : Boolean{
 
         uSender.print ( Strings.START_STRING )
 
-        val wayToFile  = sc.nextLine()
+        val wayToFile  = wayToFile
 
         val firstCommand = "load $wayToFile"
 
@@ -22,19 +23,34 @@ class Operator {
     }
 
     fun runCommand(command: String){
+        if (command.contains(ExecuteScript().getName())){
+            val exAndCom = command.split(", ")
+            val com = exAndCom.drop(1)
+            commandManager.manage(exAndCom[0], com)
+        }
         val commandAndArguments = command.split(" ")
         val name = commandAndArguments[0]
         val arguments = commandAndArguments.drop(1)
+        if (!name.contains(ExecuteScript().getName())) {
 
 
-        if (commandManager.checkCommand(name)){
-            if (arguments.isNotEmpty() && arguments.last() == ""){
-                val argumentsWithoutLast = arguments.dropLast(1)
-                commandManager.manage(name, argumentsWithoutLast)
-            }else{
-                commandManager.manage(name, arguments)}
-        }else{
-            println(Strings.NO_COMMAND)
+            if (commandManager.checkCommand(name)) {
+                if (arguments.isNotEmpty() && arguments.last() == "") {
+                    var argumentsWithoutLast = arguments.dropLast(1)
+                    if (arguments.size == 12) {
+                        val addArg = ArrayList<String>()
+                        for (i in 0..10) {
+                            addArg.add(arguments[i])
+                        }
+                        argumentsWithoutLast = addArg
+                    }
+                    commandManager.manage(name, argumentsWithoutLast)
+                } else {
+                    commandManager.manage(name, arguments)
+                }
+            } else {
+                uSender.print(Messages.MESSAGE)
+            }
         }
     }
 }

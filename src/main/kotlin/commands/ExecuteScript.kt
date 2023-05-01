@@ -1,55 +1,43 @@
 package commands
 
 
-import commands.tools.*
+import commands.tools.ArgsInfo
+import commands.tools.Result
+import commands.tools.SetMapForCommand
+import commands.tools.VarsShaper
 import operator
 import sc
 import uSender
-import java.io.BufferedReader
-import java.io.FileReader
 import java.util.*
 
+var stack = false
 class ExecuteScript: Command{
 
     private val setMapForCommand = SetMapForCommand()
     private val argsInfo = ArgsInfo()
-    private var lines : Int = 0
-    private val checker = CheckScript()
     private val shaper = VarsShaper()
     override fun comply(variables: HashMap<String, Any>): Result {
-        var message = "Команда выполнена"
-        var file = """"""
-
-        Save().comply(HashMap())
-
-        try{
-            val bufferReader = BufferedReader(FileReader(variables[Var.wayToFile].toString()))
-            while (bufferReader.readLine() != null){
-                lines += 1
-            }
-            val buf = BufferedReader(FileReader(variables[Var.wayToFile].toString()))
-            while (lines > 0){
-                file += buf.readLine() + "\n"
-                lines -= 1
-            }
-            val commands = file.lines()
-            checker.check(ExecuteScript().getName() + " " + variables[Var.wayToFile].toString())
-            val numbersOfCommands = commands.size
-            var counter = 0
-            while (counter != numbersOfCommands){
-                if (commands[counter].contains(ExecuteScript().getName())){
-                    checker.check(commands[counter])
-                }else if (commands[counter].contains(Add().getName())){
-                    counter = addCommand(commands, commands.indexOf(commands[counter]))
+        stack = true
+        try {
+            for (i in 0 until variables.size){
+                if (variables[i.toString()].toString().contains("[")){
+                    operator.runCommand(variables[i.toString()].toString().drop(1))
+                }else if (variables[i.toString()].toString().contains("]")){
+                    if (variables[i.toString()].toString()== "]"){
+                        continue
+                    }else{
+                    operator.runCommand(variables[i.toString()].toString().dropLast(1))
+                    }
+                }else{
+                    operator.runCommand(variables[i.toString()].toString())
                 }
-                operator.runCommand(commands[counter])
-                counter += 1
             }
-
         }catch (e : Exception){
-            message = "Error. Команда не выполнена."
-            println(e.printStackTrace())
+            uSender.print("Ошибка. Проверьте корректность данных в скрипте.")
         }
+
+        stack = false
+        val message = "Команда выполнена."
         return Result(message, true)
     }
 
@@ -63,12 +51,14 @@ class ExecuteScript: Command{
 
     override fun argContract(arguments: List<String>): HashMap<String, Any> {
         val file : HashMap<String, Any> = HashMap()
-        file[Var.wayToFile] = arguments[0]
+        for (i in 0 until arguments.size){
+            file[i.toString()] = arguments[i]
+        }
         return file
     }
 
     override fun argsInfo(): HashMap<String, Int> {
-        return argsInfo.setLimits(1, 1, 1)
+        return argsInfo.setLimits(100000, 1, 1)
     }
 
     override fun setMapForClient(): HashMap<String, String> {

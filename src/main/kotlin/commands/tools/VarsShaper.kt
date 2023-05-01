@@ -39,19 +39,19 @@ class VarsShaper {
         Messages.setPopulation, Messages.setMeters, Messages.setAgl, Messages.setClimate, Messages.setGovernment,
         Messages.setAge, Messages.setBirthday)
 
-    fun shape():HashMap<String, Any>{
+    fun shape(arguments : List<String>):HashMap<String, Any>{
         val variables = HashMap<String, Any>()
-        variables[Var.name] = setName()
-        variables[Var.coordinateX] = setCoordX()
-        variables[Var.coordinateY] = setCoordY()
-        variables[Var.area] = setAreaAndAge(Var.area)
-        variables[Var.population] = setPopulation()
-        variables[Var.meters] = setMeters()
-        variables[Var.agl] = setAgl()
-        variables[Var.climate] = setClimate()
-        variables[Var.government] = setGovernment()
-        variables[Var.age] = setAreaAndAge(Var.age)
-        variables[Var.birthday] = setBirthday()
+        variables[Var.name] = arguments[0]
+        variables[Var.coordinateX] = arguments[1]
+        variables[Var.coordinateY] = arguments[2]
+        variables[Var.area] = arguments[3]
+        variables[Var.population] = arguments[4]
+        variables[Var.meters] = arguments[5]
+        variables[Var.agl] = arguments[6]
+        variables[Var.climate] = arguments[7]
+        variables[Var.government] = arguments[8]
+        variables[Var.age] = arguments[9]
+        variables[Var.birthday] = arguments[10]
 
 
         return variables

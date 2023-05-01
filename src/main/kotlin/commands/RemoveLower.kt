@@ -48,7 +48,7 @@ class RemoveLower : Command {
     }
 
     override fun argsInfo(): HashMap<String, Int> {
-        return argsInfo.setLimits(2,2,1)
+        return argsInfo.setLimits(2,2,0)
     }
 
     override fun argContract(arguments: List<String>): HashMap<String, Any> {

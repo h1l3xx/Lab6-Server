@@ -17,7 +17,7 @@ class Save : Command {
     }
 
     override fun setMapForClient(): HashMap<String, String> {
-        return setMapForCommand.setMapForCommand(0,0,true,Save(), "")
+        return HashMap()
     }
 
     override fun getDescription(): String {

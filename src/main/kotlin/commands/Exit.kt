@@ -4,10 +4,9 @@ import commands.tools.ArgsInfo
 import commands.tools.Result
 import commands.tools.SetMapForCommand
 import uSender
-import kotlin.system.exitProcess
 
 object Message {
-    const val MESSAGE = "Приложение завершает свою работу..."
+    const val MESSAGE = "Происходит отключение от сервера..."
 }
 
 class Exit : Command {
@@ -16,7 +15,8 @@ class Exit : Command {
     private val argsInfo = ArgsInfo()
     override fun comply(variables: HashMap<String, Any>): Result {
         printer.print ( Message.MESSAGE )
-        exitProcess(0)
+        Save().comply(HashMap())
+        return Result("Команда выполнена", false)
     }
 
     override fun getName(): String {

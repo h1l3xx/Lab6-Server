@@ -10,14 +10,15 @@ import uSender
 
 class Help : Command{
     private val argsInfo = ArgsInfo()
-    private val printer = uSender
     private val setMapForCommand = SetMapForCommand()
 
     override fun comply(variables: HashMap<String, Any>): Result {
+        var returnValue = ""
         val commandDescriptionList: HashMap<String, String> = commandManager.getCommandDescriptionList()
         for (command in commandDescriptionList) {
-            printer.sendValues(command.key, command.value)
+           returnValue += "${command.key}  ---  ${command.value}\n"
         }
+        uSender.print(returnValue)
         return Result("Команда успешно выполнена", false)
     }
 

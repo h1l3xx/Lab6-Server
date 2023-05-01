@@ -27,8 +27,13 @@ class CityCollection {
             arrayFreeId = removeFirstItem(arrayFreeId)
             id
         }else{
+            if (collection.isNotEmpty()){
+                maxId = collection.size.toLong()+1
+                maxId
+            }else{
             maxId += 1
             maxId
+            }
         }
     }
     private fun removeFirstItem(array: Array<Long>): Array<Long> {

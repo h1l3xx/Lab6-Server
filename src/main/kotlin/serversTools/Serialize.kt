@@ -9,7 +9,8 @@ class Serialization {
         return mapper.writerWithDefaultPrettyPrinter().writeValueAsString(data)
     }
     fun serializeAnswer(data : String) : String {
+        val answer = MapBuilder().buildMap(data)
         val mapper = ObjectMapper()
-        return mapper.writerWithDefaultPrettyPrinter().writeValueAsString(data)
+        return mapper.writerWithDefaultPrettyPrinter().writeValueAsString(answer)
     }
 }

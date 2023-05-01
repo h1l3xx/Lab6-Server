@@ -14,6 +14,7 @@ import java.time.format.DateTimeFormatter
 
 
 object Var{
+    const val save = "C:\\Users\\Sasha\\IdeaProjects\\Lab6-Server\\save.json"
     const val id = "id"
     const val name = "name"
     const val coordinateX = "coordX"
@@ -87,11 +88,11 @@ class Add : Command {
     }
 
     override fun argsInfo(): HashMap<String, Int> {
-        return argsInfo.setLimits(0, 0, 0)
+        return argsInfo.setLimits(11, 11, 0)
     }
 
     override fun argContract(arguments: List<String>): HashMap<String, Any> {
-        return shaper.shape()
+        return shaper.shape(arguments)
     }
     override fun setMapForClient() : HashMap<String, String>{
         return setMapForCommand.setMapForCommand(0,0,false, Add(), "")

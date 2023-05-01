@@ -13,12 +13,16 @@ class Show : Command {
     override fun comply(variables: HashMap<String, Any>): Result {
 
         val collection = collection.getCollection()
+        var sendValue = ""
         if (collection.size > 0) {
             for (c in collection) {
-                println(c.toString())
+                sendValue += c.toString() + "\n"
             }
+            uSender.print(sendValue)
+
         } else {
-            uSender.print ( "Коллекция пуста." )
+            sendValue = "Коллекция пуста"
+            uSender.print (sendValue)
         }
 
         return Result("Команда выполнена успешно.", false)

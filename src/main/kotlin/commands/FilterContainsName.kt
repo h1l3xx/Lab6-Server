@@ -1,12 +1,10 @@
 package commands
 
 import city.City
-
 import collection
 import commands.tools.ArgsInfo
 import commands.tools.Result
 import commands.tools.SetMapForCommand
-import uSender
 
 
 class FilterContainsName : Command {
@@ -15,20 +13,20 @@ class FilterContainsName : Command {
     override fun comply(variables: HashMap<String, Any>): Result {
 
         val collectionInfo = collection.getCollection()
-
+        var returnValue = ""
         if (collectionInfo.isNotEmpty()) {
             val it: Iterator<City> = collection.getCollection().iterator()
             while (it.hasNext()) {
                 val city: City = it.next()
                 if (city.getName()!!.contains(variables["Substring"].toString())) {
-                    uSender.print ( city.getName()!! )
+                    returnValue += " " + city.getName()!! + "\n"
                 }
             }
         } else {
-            uSender.print ( "Коллекция пуста." )
+            returnValue += "Коллекция пуста\n"
         }
 
-        return Result("Выведены все города с указанной подстрокой в названии.", true)
+        return Result("$returnValue Выведены все города с указанной подстрокой в названии.", true)
     }
 
     override fun getName(): String {

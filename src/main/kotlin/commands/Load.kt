@@ -10,7 +10,7 @@ class Load : Command {
 
     override fun comply(variables: HashMap<String, Any>): Result {
 
-        parser.parse(variables[Var.wayToFile].toString())
+        parser.parse(Var.save)
         return Result("Загружено", true)
     }
 

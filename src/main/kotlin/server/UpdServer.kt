@@ -1,5 +1,7 @@
 package server
 
+import commands.Clear
+import commands.Load
 import commands.tools.Validator
 import operator
 import senders.ChannelAndAddressManager
@@ -42,19 +44,17 @@ class UpdServer {
     }
 
     private fun receive(channel: DatagramChannel, socketAddress: SocketAddress, data : String){
-
         val deserializationSegment = Deserialization().deserialize(data)
         val commandAndArguments = Parse().parseToServer(deserializationSegment)
-        println(commandAndArguments.drop(1).dropLast(1))
         operator.runCommand(commandAndArguments.drop(1).dropLast(1))
-
-        channel.send(ByteBuffer.wrap(Serialization().serializeAnswer("Ответ").toByteArray()), socketAddress)
     }
 
     private fun firstConnection(channel: DatagramChannel, socketAddress: SocketAddress){
         val printAddress = socketAddress.toString().split(":")[0].drop(1)
         println("New client : $printAddress")
 
+        Clear().comply(HashMap())
+        Load().comply(HashMap())
         channel.send(ByteBuffer.wrap(Serialization().serialize(Validator().takeAllInfoFromCommand())!!.toByteArray()), socketAddress)
     }
     fun stop(){
